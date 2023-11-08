@@ -1,6 +1,6 @@
 import math
 
-operator = str(input("enter operator (+, -, *, /, pow, sqrt, cos, sin, tan, ctan): "))
+operator = str(input("enter operator (+, -, *, /, pow, sqrt, cos, sin, tan, ctan, !): "))
 
 try:
     if operator == "cos" or operator == "sin" or operator == "tan" or operator == "!" or operator == "sqrt":
@@ -50,9 +50,15 @@ while True:
             print("result: ", result)
         case "!":
             if flag == 0:
-                result += math.factorial(num)
+                if num > 0:
+                    result += math.factorial(num)
+                else:
+                    print("fatal error")
             else:
-                result += math.factorial(cont_num)
+                if cont_num > 0:
+                    result += math.factorial(cont_num)
+                else:
+                    print("fatal error")            
             print("result: ", result)
         case "pow":
             if flag == 0:
@@ -62,9 +68,15 @@ while True:
             print("result: ", result)
         case "sqrt":
             if flag == 0:
-                result += math.sqrt(num)
+                if num > 0:
+                    result += math.sqrt(num)
+                else:
+                    print("fatal error")            
             else:
-                result += math.sqrt(cont_num)
+                if num > 0:
+                    result += math.sqrt(cont_num)
+                else:
+                    print("fatal error")              
             print("result: ", result)
         case "sin":
             if flag == 0:
@@ -100,7 +112,7 @@ while True:
     print("do you wnat more? y/n")
     v68 = str(input())
     if v68 == "y":
-        operator = str(input("enter new operator (+, -, *, /, pow, sqrt, cos, sin, tan, ctan): "))
+        operator = str(input("enter new operator (+, -, *, /, pow, sqrt, cos, sin, tan, ctan, !): "))
         try:
             cont_num = int(input("enter num: "))
             if operator == "pow":
